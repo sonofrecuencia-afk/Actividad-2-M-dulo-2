@@ -136,22 +136,24 @@
         </div>
 
         <div id="screen-outro" class="screen">
-            <div style="text-align: center;">
-                <div style="font-size: 4rem; margin-bottom: 1rem;">🎉</div>
-                <h2 style="color: var(--primary-color); margin-bottom: 1rem; font-weight: 800; font-size: 1.8rem;">¡Felicidades!</h2>
-                <p style="font-size: 1.2rem; font-weight: 600; color: var(--text-dark); margin-bottom: 2rem;">¡Terminaste esta actividad formativa con éxito! Ya puedes seguir avanzando en el Módulo 2.</p>
-            </div>
-            
-            <div style="text-align: left; font-size: 1.1rem; line-height: 1.6; color: var(--text-dark); background: #f1f5f9; padding: 1.5rem; border-radius: 12px; margin-bottom: 2rem;">
-                <h3 style="margin-top: 0; margin-bottom: 10px; color: var(--primary-color); font-size: 1.25rem;">Cierre reflexivo</h3>
-                <p style="margin-top: 0;">Las dimensiones propuestas por el INDEX no funcionan de manera aislada.</p>
-                <p>Las culturas institucionales, las políticas educativas y las prácticas pedagógicas se relacionan constantemente y configuran las experiencias de participación dentro de los espacios educativos.</p>
-                <p style="margin-bottom: 0;">Repensar la inclusión implica cuestionar aquellas ideas, decisiones y acciones que muchas veces aparecen naturalizadas dentro de las instituciones y que pueden limitar, de forma explícita o sutil, las oportunidades de aprendizaje y pertenencia.</p>
-            </div>
+            <div id="outro-content">
+                <div style="text-align: center;">
+                    <div style="font-size: 4rem; margin-bottom: 1rem;">🎉</div>
+                    <h2 style="color: var(--primary-color); margin-bottom: 1rem; font-weight: 800; font-size: 1.8rem;">¡Felicidades!</h2>
+                    <p style="font-size: 1.2rem; font-weight: 600; color: var(--text-dark); margin-bottom: 2rem;">¡Terminaste esta actividad formativa con éxito! Ya puedes seguir avanzando en el Módulo 2.</p>
+                </div>
+                
+                <div style="text-align: left; font-size: 1.1rem; line-height: 1.6; color: var(--text-dark); background: #f1f5f9; padding: 1.5rem; border-radius: 12px; margin-bottom: 2rem;">
+                    <h3 style="margin-top: 0; margin-bottom: 10px; color: var(--primary-color); font-size: 1.25rem;">Cierre reflexivo</h3>
+                    <p style="margin-top: 0;">Las dimensiones propuestas por el INDEX no funcionan de manera aislada.</p>
+                    <p>Las culturas institucionales, las políticas educativas y las prácticas pedagógicas se relacionan constantemente y configuran las experiencias de participación dentro de los espacios educativos.</p>
+                    <p style="margin-bottom: 0;">Repensar la inclusión implica cuestionar aquellas ideas, decisiones y acciones que muchas veces aparecen naturalizadas dentro de las instituciones y que pueden limitar, de forma explícita o sutil, las oportunidades de aprendizaje y pertenencia.</p>
+                </div>
 
-            <div style="display: flex; gap: 15px; justify-content: center; flex-wrap: wrap;">
-                <button onclick="location.reload()" class="btn-next" style="margin-top:0; background: var(--secondary-color);">Volver a empezar</button>
-                <button onclick="window.close()" class="btn-next" style="margin-top:0; background: var(--primary-color);">Finalizar y salir</button>
+                <div style="display: flex; gap: 15px; justify-content: center; flex-wrap: wrap;">
+                    <button onclick="location.reload()" class="btn-next" style="margin-top:0; background: var(--secondary-color);">Volver a empezar</button>
+                    <button onclick="finalizarGenially()" class="btn-next" style="margin-top:0; background: var(--primary-color);">Finalizar Actividad</button>
+                </div>
             </div>
         </div>
     </div>
@@ -294,6 +296,18 @@
             }
         }
     };
+
+    // Función especial para la salida en Genially
+    function finalizarGenially() {
+        const outroContent = document.getElementById('outro-content');
+        outroContent.innerHTML = `
+            <div style="text-align: center; padding: 2rem 0; animation: fadeIn 0.5s;">
+                <div style="font-size: 5rem; margin-bottom: 1rem;">✅</div>
+                <h2 style="color: var(--primary-color); font-size: 2.2rem; font-weight: 800; margin-bottom: 1rem;">¡Actividad Finalizada!</h2>
+                <p style="color: #4b5563; font-size: 1.2rem; font-weight: 500;">Ya puedes avanzar en tu ruta de aprendizajey.</p>
+            </div>
+        `;
+    }
 
     function loadContent() {
         const item = ACTIVITY_DATA[currentItemIndex];
